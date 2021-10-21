@@ -8,10 +8,97 @@
 import UIKit
 
 class MainViewController: UIViewController {
+        
+    //MARK: Properties
+    
+    private let answerLabel = UILabel()
+    private let questionTextField = UITextField()
+    
+    private var service = NetworkService()
+
+    //MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupViews()
     }
-
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        questionTextField.resignFirstResponder()
+        service.delegate = self
+    }
+    
+    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        service.delegate = nil
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard let text = questionTextField.text, !text.isEmpty else { return }
+        service.fetchAnswer(for: text)
+    }
+    
+    //MARK: Private
+    
+    private func setupViews() {
+        view.backgroundColor = .white
+        
+        self.navigationController?.navigationBar.topItem?.title = "ShakeApp"
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(rigthButtonClicked))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        view.addSubview(answerLabel)
+        view.addSubview(questionTextField)
+        
+        answerLabel.translatesAutoresizingMaskIntoConstraints = false
+        questionTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            answerLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            answerLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            questionTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -80),
+            questionTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            questionTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            questionTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
+        ])
+        
+        answerLabel.text = "Hello"
+        answerLabel.textColor = .black
+        
+        questionTextField.borderStyle = .roundedRect
+        questionTextField.textAlignment = .center
+        questionTextField.backgroundColor = .systemGray2
+        questionTextField.placeholder = "Enter your question and shake the phone"
+    }
+    
+    @objc private func rigthButtonClicked() {
+        let settingsVC = SettingsViewController()
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    @objc private func dissmissKeyboard() {
+        questionTextField.resignFirstResponder()
+    }
+    
 }
+
+extension MainViewController: NetworkServiceDelegate {
+    func didGetError() {
+        let customAnswer = UserDefaults.standard.string(forKey: "customAnswer")
+        guard let answer = customAnswer, !answer.isEmpty else {
+            answerLabel.text = "Opps"
+            return
+        }
+        answerLabel.text = answer
+    }
+    
+    func didFetchMagic(_ networkService: NetworkService, _ magicData: MagicData) {
+        answerLabel.text = magicData.answer
+    }
+}
+
+

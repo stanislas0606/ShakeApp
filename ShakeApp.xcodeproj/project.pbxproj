@@ -13,6 +13,8 @@
 		BFF9B34E2720AB4D000CFC18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B34C2720AB4D000CFC18 /* LaunchScreen.storyboard */; };
 		BFF9B3562720AD86000CFC18 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3552720AD86000CFC18 /* MainViewController.swift */; };
 		BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */; };
+		BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3592721AA18000CFC18 /* NetworkService.swift */; };
+		BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BFF9B34F2720AB4D000CFC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF9B3552720AD86000CFC18 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BFF9B3592721AA18000CFC18 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		BFF9B3402720AB4C000CFC18 /* ShakeApp */ = {
 			isa = PBXGroup;
 			children = (
+				BFF9B3592721AA18000CFC18 /* NetworkService.swift */,
+				BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */,
 				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
 				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
 				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
@@ -136,10 +142,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */,
 				BFF9B3562720AD86000CFC18 /* MainViewController.swift in Sources */,
 				BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */,
 				BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */,
 				BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */,
+				BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJD8T4GCDN;
 				INFOPLIST_FILE = ShakeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJD8T4GCDN;
 				INFOPLIST_FILE = ShakeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
