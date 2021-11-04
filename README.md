@@ -1,1 +1,3 @@
 # ShakeApp
+
+Some app description
