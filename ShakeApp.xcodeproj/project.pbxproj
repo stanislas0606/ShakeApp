@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EAA9EBD7E0310526D809DB7 /* libPods-ShakeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */; };
 		BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */; };
 		BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */; };
 		BFF9B34B2720AB4D000CFC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C53E81D24D530C9AD46A729 /* Pods-ShakeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeApp.debug.xcconfig"; path = "Target Support Files/Pods-ShakeApp/Pods-ShakeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		480B029340FF6AAA800CE14A /* Pods-ShakeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeApp.release.xcconfig"; path = "Target Support Files/Pods-ShakeApp/Pods-ShakeApp.release.xcconfig"; sourceTree = "<group>"; };
+		81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShakeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF9B33E2720AB4C000CFC18 /* ShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EAA9EBD7E0310526D809DB7 /* libPods-ShakeApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		970F69ADAA0803D12C742E94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B99DBC0595D7F740F350B87B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C53E81D24D530C9AD46A729 /* Pods-ShakeApp.debug.xcconfig */,
+				480B029340FF6AAA800CE14A /* Pods-ShakeApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BFF9B3352720AB4C000CFC18 = {
 			isa = PBXGroup;
 			children = (
 				BFF9B3402720AB4C000CFC18 /* ShakeApp */,
 				BFF9B33F2720AB4C000CFC18 /* Products */,
+				B99DBC0595D7F740F350B87B /* Pods */,
+				970F69ADAA0803D12C742E94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFF9B3522720AB4D000CFC18 /* Build configuration list for PBXNativeTarget "ShakeApp" */;
 			buildPhases = (
+				7A86ED848731189C8347F4F1 /* [CP] Check Pods Manifest.lock */,
 				BFF9B33A2720AB4C000CFC18 /* Sources */,
 				BFF9B33B2720AB4C000CFC18 /* Frameworks */,
 				BFF9B33C2720AB4C000CFC18 /* Resources */,
@@ -136,6 +162,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A86ED848731189C8347F4F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShakeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFF9B33A2720AB4C000CFC18 /* Sources */ = {
@@ -283,6 +334,7 @@
 		};
 		BFF9B3532720AB4D000CFC18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C53E81D24D530C9AD46A729 /* Pods-ShakeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +355,7 @@
 		};
 		BFF9B3542720AB4D000CFC18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 480B029340FF6AAA800CE14A /* Pods-ShakeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

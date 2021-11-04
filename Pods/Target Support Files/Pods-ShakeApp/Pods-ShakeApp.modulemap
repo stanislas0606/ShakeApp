@@ -1,0 +1,6 @@
+module Pods_ShakeApp {
+  umbrella header "Pods-ShakeApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
