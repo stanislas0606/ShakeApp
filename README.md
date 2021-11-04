@@ -1,3 +1,0 @@
-# ShakeApp
-
-Some app description
