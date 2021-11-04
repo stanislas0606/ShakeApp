@@ -1,3 +1,3 @@
 # ShakeApp
 
-Some app description
+Awesome app description
