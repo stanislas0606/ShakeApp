@@ -1,3 +1,0 @@
-# ShakeApp
-
-Awesome app description
