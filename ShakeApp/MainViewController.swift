@@ -9,14 +9,25 @@ import UIKit
 
 class MainViewController: UIViewController {
         
-    //MARK: Properties
+    //MARK: - Properties
     
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
     
-    private var service = NetworkService()
-
-    //MARK: Lifecycle
+    private var networkDataProvider: NetworkDataProvider
+    
+    //MARK: - Init
+    
+    init(networkDataProvider: NetworkDataProvider) {
+        self.networkDataProvider = networkDataProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +37,21 @@ class MainViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         questionTextField.resignFirstResponder()
-        service.delegate = self
+        guard let provider = networkDataProvider as? NetworkService else { return }
+        provider.delegate = self
     }
     
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        service.delegate = nil
+        guard let provider = networkDataProvider as? NetworkService else { return }
+        provider.delegate = nil
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        guard let text = questionTextField.text, !text.isEmpty else { return }
-        service.fetchAnswer(for: text)
+        guard let text = questionTextField.text, !text.isEmpty, let provider = networkDataProvider as? NetworkService else { return }
+        provider.fetchData(for: text)
     }
     
-    //MARK: Private
+    //MARK: - Private
     
     private func setupViews() {
         view.backgroundColor = .white
@@ -86,6 +99,8 @@ class MainViewController: UIViewController {
     
 }
 
+//MARK: - NetworkServiceDelegate
+
 extension MainViewController: NetworkServiceDelegate {
     func didGetError() {
         let customAnswer = UserDefaults.standard.string(forKey: "customAnswer")
@@ -96,7 +111,7 @@ extension MainViewController: NetworkServiceDelegate {
         answerLabel.text = answer
     }
     
-    func didFetchMagic(_ networkService: NetworkService, _ magicData: MagicData) {
+    func didFetchMagic(_ magicData: MagicData) {
         answerLabel.text = magicData.answer
     }
 }

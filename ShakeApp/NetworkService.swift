@@ -8,41 +8,45 @@
 import Foundation
 
 protocol NetworkServiceDelegate {
-    func didFetchMagic(_ networkService: NetworkService, _ magicData: MagicData)
+    func didFetchMagic(_ magicData: MagicData)
     func didGetError()
 }
 
-struct NetworkService {
+protocol NetworkDataProvider {
+    func fetchData(for question: String)
+}
+
+class NetworkService: NetworkDataProvider {
     
-    //MARK: Properties
+    //MARK: - Properties
     
     let baseURL = URL(string: "https://8ball.delegator.com/magic/JSON/")
     
     var delegate: NetworkServiceDelegate?
     
-    //MARK: Functions
+    //MARK: - Functions
     
-    func fetchAnswer(for question: String) {
+    func fetchData(for question: String) {
         guard let url = baseURL, !question.isEmpty else { return }
         let questionString = question.replacingOccurrences(of: " ", with: "%20")
         let urlString = "\(url)\(questionString)"
         performRequest(with: urlString)
     }
     
-    //MARK: Private
+    //MARK: - Private
     
     private func performRequest(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { data, responce, error in
-            guard let data = data, let decodedData = parseJSON(data) else {
+        let task = session.dataTask(with: url) { [weak self] data, responce, error in
+            guard let data = data, let decodedData = self?.parseJSON(data) else {
                 DispatchQueue.main.async {
-                    self.delegate?.didGetError()
+                    self?.delegate?.didGetError()
                 }
                 return
             }
             DispatchQueue.main.async {
-                self.delegate?.didFetchMagic(self, decodedData.magic)
+                self?.delegate?.didFetchMagic(decodedData.magic)
             }
             
         }
