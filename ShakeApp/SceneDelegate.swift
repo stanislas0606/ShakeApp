@@ -17,11 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         self.window = window
 
-        let mainViewController = MainViewController(networkDataProvider: NetworkService())
+        let mainViewController = MainViewController(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
         let navigationController = UINavigationController(rootViewController: mainViewController)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
-        
         
     }
 

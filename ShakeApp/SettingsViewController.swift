@@ -13,6 +13,19 @@ class SettingsViewController: UIViewController {
     
     private let customAnswerTextField = UITextField()
     private let saveButton = UIButton()
+    
+    private let storageDataProvider: StorageDataProvider
+    
+    //MARK: - Init
+    
+    init(storageDataProvider: StorageDataProvider) {
+        self.storageDataProvider = storageDataProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     //MARK: Lifecycle
     
@@ -65,7 +78,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        UserDefaults.standard.setValue(customAnswerTextField.text, forKey:  "customAnswer")
+        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: "customAnswer")
         customAnswerTextField.text = nil
     }
 }

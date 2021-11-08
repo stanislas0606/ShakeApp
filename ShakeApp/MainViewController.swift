@@ -14,12 +14,14 @@ class MainViewController: UIViewController {
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
     
-    private var networkDataProvider: NetworkDataProvider
+    private let networkDataProvider: NetworkDataProvider
+    private let storageDataProvider: StorageDataProvider
     
     //MARK: - Init
     
-    init(networkDataProvider: NetworkDataProvider) {
+    init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider) {
         self.networkDataProvider = networkDataProvider
+        self.storageDataProvider = storageDataProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -89,7 +91,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func rigthButtonClicked() {
-        let settingsVC = SettingsViewController()
+        let settingsVC = SettingsViewController(storageDataProvider: StorageService())
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
@@ -103,7 +105,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: NetworkServiceDelegate {
     func didGetError() {
-        let customAnswer = UserDefaults.standard.string(forKey: "customAnswer")
+        let customAnswer = storageDataProvider.readData(for: "customAnswer")
         guard let answer = customAnswer, !answer.isEmpty else {
             answerLabel.text = "Opps"
             return

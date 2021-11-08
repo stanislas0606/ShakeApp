@@ -16,6 +16,7 @@
 		BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */; };
 		BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3592721AA18000CFC18 /* NetworkService.swift */; };
 		BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */; };
+		BFF9B3602739C0A3000CFC18 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B35F2739C0A3000CFC18 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BFF9B3592721AA18000CFC18 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
+		BFF9B35F2739C0A3000CFC18 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,6 @@
 				1C53E81D24D530C9AD46A729 /* Pods-ShakeApp.debug.xcconfig */,
 				480B029340FF6AAA800CE14A /* Pods-ShakeApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF9B3592721AA18000CFC18 /* NetworkService.swift */,
+				BFF9B35F2739C0A3000CFC18 /* StorageService.swift */,
 				BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */,
 				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
 				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
@@ -199,6 +201,7 @@
 				BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */,
 				BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */,
 				BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */,
+				BFF9B3602739C0A3000CFC18 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
