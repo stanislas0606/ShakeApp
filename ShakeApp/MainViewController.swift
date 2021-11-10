@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
     
-    private let networkDataProvider: NetworkDataProvider
+    private var networkDataProvider: NetworkDataProvider
     private let storageDataProvider: StorageDataProvider
     
     //MARK: - Init
@@ -39,18 +39,17 @@ class MainViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         questionTextField.resignFirstResponder()
-        guard let provider = networkDataProvider as? NetworkService else { return }
-        provider.delegate = self
+        networkDataProvider.delegate = self
+
     }
     
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        guard let provider = networkDataProvider as? NetworkService else { return }
-        provider.delegate = nil
+        networkDataProvider.delegate = nil
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        guard let text = questionTextField.text, !text.isEmpty, let provider = networkDataProvider as? NetworkService else { return }
-        provider.fetchData(for: text)
+        guard let text = questionTextField.text, !text.isEmpty else { return }
+        networkDataProvider.fetchData(for: text)
     }
     
     //MARK: - Private

@@ -13,11 +13,12 @@ protocol NetworkServiceDelegate {
 }
 
 protocol NetworkDataProvider {
+    var delegate: NetworkServiceDelegate? { set get }
     func fetchData(for question: String)
 }
 
 class NetworkService: NetworkDataProvider {
-    
+
     //MARK: - Properties
     
     let baseURL = URL(string: "https://8ball.delegator.com/magic/JSON/")
