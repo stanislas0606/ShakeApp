@@ -4,5 +4,6 @@ target 'ShakeApp' do
  # Networking
  pod 'Alamofire', '~> 4.8.1'
  pod 'SwiftLint', '0.45.0'
+ pod 'SwiftGen', '~> 6.0'
 end
  
