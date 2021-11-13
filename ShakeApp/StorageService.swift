@@ -16,7 +16,7 @@ class StorageService: StorageDataProvider {
     func readData(for key: String) -> String? {
         return UserDefaults.standard.string(forKey: key)
     }
-    
+
     func writeData(_ data: String, for key: String) {
         UserDefaults.standard.setValue(data, forKey: key)
     }

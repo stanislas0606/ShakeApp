@@ -11,7 +11,7 @@ struct AnswerData: Codable {
     let magic: MagicData
 }
 
-struct MagicData: Codable{
+struct MagicData: Codable {
     let question: String
     let answer: String
     let type: String

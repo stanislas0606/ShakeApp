@@ -7,39 +7,36 @@
 
 import Foundation
 
-protocol NetworkServiceDelegate {
+protocol NetworkServiceDelegate: AnyObject {
     func didFetchMagic(_ magicData: MagicData)
     func didGetError()
 }
 
 protocol NetworkDataProvider {
-    var delegate: NetworkServiceDelegate? { set get }
+    var delegate: NetworkServiceDelegate? { get set }
     func fetchData(for question: String)
 }
 
 class NetworkService: NetworkDataProvider {
 
-    //MARK: - Properties
-    
+    // MARK: - Properties
     let baseURL = URL(string: "https://8ball.delegator.com/magic/JSON/")
-    
-    var delegate: NetworkServiceDelegate?
-    
-    //MARK: - Functions
-    
+
+    weak var delegate: NetworkServiceDelegate?
+
+    // MARK: - Functions
     func fetchData(for question: String) {
         guard let url = baseURL, !question.isEmpty else { return }
         let questionString = question.replacingOccurrences(of: " ", with: "%20")
         let urlString = "\(url)\(questionString)"
         performRequest(with: urlString)
     }
-    
-    //MARK: - Private
-    
+
+    // MARK: - Private
     private func performRequest(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { [weak self] data, responce, error in
+        let task = session.dataTask(with: url) { [weak self] data, _, _ in
             guard let data = data, let decodedData = self?.parseJSON(data) else {
                 DispatchQueue.main.async {
                     self?.delegate?.didGetError()
@@ -49,12 +46,15 @@ class NetworkService: NetworkDataProvider {
             DispatchQueue.main.async {
                 self?.delegate?.didFetchMagic(decodedData.magic)
             }
-            
         }
         task.resume()
     }
-    
+
     private func parseJSON(_ data: Data) -> AnswerData? {
-        return try! JSONDecoder().decode(AnswerData.self, from: data)
+        do {
+            return try JSONDecoder().decode(AnswerData.self, from: data)
+        } catch {
+            return nil
+        }
     }
 }
