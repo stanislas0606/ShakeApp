@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftGen;
+			productName = SwiftGen;
 		};
 		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -99,11 +101,11 @@
 		89C4A301888F4366A5EEF097DA69985F /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		935DDD0A7BB5792313078D5270563A5B /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
 		979FCC892F2A39F28F2AE9DC4F90D90F /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E046480E23EDECE4C2EFC56B9F7820C /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		9F3D889F3320A5F99A34ED1A5B0E51A1 /* Pods-ShakeApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ShakeApp-umbrella.h"; sourceTree = "<group>"; };
 		A7309E89954D106B5B5C174F560D1107 /* Pods-ShakeApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ShakeApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		AC6296822DB01AF825D2AC6B5713BBCE /* Pods-ShakeApp */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-ShakeApp"; path = "libPods-ShakeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6296822DB01AF825D2AC6B5713BBCE /* libPods-ShakeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShakeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7C2423D73BDB69BA523BFC08535FAB /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		AFBC6945B536FF28914EB7E8FA13F8A9 /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
 		B0283CC6BDEE693524E1EA0627D752B1 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
@@ -138,7 +140,6 @@
 			children = (
 				4EA94B7490227C6A791DA21DFEB7A355 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -207,7 +208,6 @@
 				1CC139557009D2460EE5939D510B0625 /* Validation.swift */,
 				E16CF7897DBBF956018F3E51AFA965C9 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -215,7 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				AC6296822DB01AF825D2AC6B5713BBCE /* Pods-ShakeApp */,
+				AC6296822DB01AF825D2AC6B5713BBCE /* libPods-ShakeApp.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,7 +267,6 @@
 			children = (
 				4BFFA52681D30BBD215CCA4AE2B939C8 /* Support Files */,
 			);
-			name = SwiftGen;
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
@@ -310,7 +309,7 @@
 			);
 			name = "Pods-ShakeApp";
 			productName = "Pods-ShakeApp";
-			productReference = AC6296822DB01AF825D2AC6B5713BBCE /* Pods-ShakeApp */;
+			productReference = AC6296822DB01AF825D2AC6B5713BBCE /* libPods-ShakeApp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
