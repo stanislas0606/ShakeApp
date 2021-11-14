@@ -6,9 +6,10 @@
   
 */
 
-"AppName" = "ShakeApp";
-"Greeting" = "Hello";
-"QuestionTextPlaceHolder" = "Enter your question and shake the phone";
-"CustomAnswerKey" = "customAnswer";
-"DefaultAnswer" = "Opps";
-"AnswerTextPlaceHolder" = "Enter your custom answer";
+"appName.text" = "ShakeApp";
+"greeting.text" = "Hello";
+"question.placeholder.text" = "Enter your question and shake the phone";
+"answer.custom.key" = "customAnswer";
+"answer.default.text" = "Opps";
+"answer.placeholder.text" = "Enter your custom answer";
+"answer.empty" = "";

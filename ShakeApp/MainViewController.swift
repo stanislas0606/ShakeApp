@@ -52,8 +52,8 @@ class MainViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = Asset.Colors.whiteColor.color
 
-        self.navigationController?.navigationBar.topItem?.title = L10n.appName
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.topItem?.title = L10n.AppName.text
+        self.navigationController?.navigationBar.tintColor = Asset.Colors.grayColor.color
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(rigthButtonClicked))
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
@@ -75,13 +75,13 @@ class MainViewController: UIViewController {
             questionTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
         ])
 
-        answerLabel.text = L10n.greeting
+        answerLabel.text = L10n.Answer.empty
         answerLabel.textColor = Asset.Colors.blackColor.color
-        
+
         questionTextField.borderStyle = .roundedRect
         questionTextField.textAlignment = .center
-        questionTextField.backgroundColor = Asset.Colors.greyColor.color
-        questionTextField.placeholder = L10n.questionTextPlaceHolder
+        questionTextField.backgroundColor = Asset.Colors.grayColor.color
+        questionTextField.placeholder = L10n.Question.Placeholder.text
     }
 
     @objc private func rigthButtonClicked() {
@@ -98,9 +98,9 @@ class MainViewController: UIViewController {
 // MARK: - NetworkServiceDelegate
 extension MainViewController: NetworkServiceDelegate {
     func didGetError() {
-        let customAnswer = storageDataProvider.readData(for: L10n.customAnswerKey)
+        let customAnswer = storageDataProvider.readData(for: L10n.Answer.Custom.key)
         guard let answer = customAnswer, !answer.isEmpty else {
-            answerLabel.text = L10n.defaultAnswer
+            answerLabel.text = L10n.Answer.Default.text
             return
         }
         answerLabel.text = answer

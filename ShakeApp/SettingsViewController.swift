@@ -65,8 +65,8 @@ class SettingsViewController: UIViewController {
 
         customAnswerTextField.borderStyle = .roundedRect
         customAnswerTextField.textAlignment = .center
-        customAnswerTextField.backgroundColor = Asset.Colors.greyColor.color
-        customAnswerTextField.placeholder = L10n.answerTextPlaceHolder
+        customAnswerTextField.backgroundColor = Asset.Colors.grayColor.color
+        customAnswerTextField.placeholder = L10n.Answer.Placeholder.text
     }
 
     @objc private func dissmissKeyboard() {
@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: L10n.customAnswerKey)
+        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: L10n.Answer.Custom.key)
         customAnswerTextField.text = nil
     }
 }
