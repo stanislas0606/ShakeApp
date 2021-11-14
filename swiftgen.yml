@@ -2,8 +2,8 @@
 ## XCAssets
 xcassets:
   inputs:
-    - ShakeApp/Assets.xcassets
-    - ShakeApp/Colors.xcassets
+    - ShakeApp/Resources/Assets.xcassets
+    - ShakeApp/Resources/Colors.xcassets
   outputs:
     templateName: swift5
     output: XCAssets+Generated.swift
@@ -11,7 +11,7 @@ xcassets:
 ## Strings
 strings:
   inputs:
-    - ShakeApp/en.lproj
+    - ShakeApp/Resources/en.lproj
   outputs:
     - templateName: structured-swift5
       params:
