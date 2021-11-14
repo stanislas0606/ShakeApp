@@ -21,6 +21,10 @@
 		BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */; };
 		BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B37127408967000CFC18 /* Strings+Generated.swift */; };
 		BFF9B3832741397F000CFC18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B3812741397F000CFC18 /* Localizable.strings */; };
+		BFF9B38F27419D33000CFC18 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B38E27419D33000CFC18 /* MainModel.swift */; };
+		BFF9B39127419D94000CFC18 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B39027419D94000CFC18 /* MainViewModel.swift */; };
+		BFF9B39327419DE8000CFC18 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B39227419DE8000CFC18 /* SettingsModel.swift */; };
+		BFF9B39527419DFE000CFC18 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B39427419DFE000CFC18 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "ShakeApp/Resources/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		BFF9B37127408967000CFC18 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strings+Generated.swift"; path = "ShakeApp/Resources/Strings+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		BFF9B3822741397F000CFC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFF9B38E27419D33000CFC18 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		BFF9B39027419D94000CFC18 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		BFF9B39227419DE8000CFC18 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		BFF9B39427419DFE000CFC18 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +105,7 @@
 				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
 				BFF9B37A27413399000CFC18 /* Data */,
 				BFF9B3792741336F000CFC18 /* Services */,
-				BFF9B37827413308000CFC18 /* Flows */,
+				BFF9B37827413308000CFC18 /* Scenes */,
 				BFF9B373274130BC000CFC18 /* Resources */,
 			);
 			path = ShakeApp;
@@ -116,13 +124,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		BFF9B37827413308000CFC18 /* Flows */ = {
+		BFF9B37827413308000CFC18 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
-				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
+				BFF9B38627419851000CFC18 /* Main */,
+				BFF9B38A27419BBE000CFC18 /* Settings */,
 			);
-			path = Flows;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		BFF9B3792741336F000CFC18 /* Services */ = {
@@ -140,6 +148,74 @@
 				BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		BFF9B38627419851000CFC18 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B38727419883000CFC18 /* Model */,
+				BFF9B3882741989C000CFC18 /* ViewModel */,
+				BFF9B38927419B92000CFC18 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BFF9B38727419883000CFC18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B38E27419D33000CFC18 /* MainModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFF9B3882741989C000CFC18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B39027419D94000CFC18 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFF9B38927419B92000CFC18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFF9B38A27419BBE000CFC18 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B38D27419BF7000CFC18 /* Model */,
+				BFF9B38C27419BE9000CFC18 /* ViewModel */,
+				BFF9B38B27419BDD000CFC18 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BFF9B38B27419BDD000CFC18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFF9B38C27419BE9000CFC18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B39427419DFE000CFC18 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFF9B38D27419BF7000CFC18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B39227419DE8000CFC18 /* SettingsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF9B39327419DE8000CFC18 /* SettingsModel.swift in Sources */,
 				BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */,
 				BFF9B3562720AD86000CFC18 /* MainViewController.swift in Sources */,
 				BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */,
@@ -284,8 +361,11 @@
 				BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */,
 				BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */,
 				BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */,
+				BFF9B39527419DFE000CFC18 /* SettingsViewModel.swift in Sources */,
 				BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */,
+				BFF9B38F27419D33000CFC18 /* MainModel.swift in Sources */,
 				BFF9B3602739C0A3000CFC18 /* StorageService.swift in Sources */,
+				BFF9B39127419D94000CFC18 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
