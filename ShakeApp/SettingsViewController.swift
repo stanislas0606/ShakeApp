@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
 
     // MARK: Private
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Asset.Colors.whiteColor.color
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
         view.addGestureRecognizer(tap)
@@ -59,14 +59,14 @@ class SettingsViewController: UIViewController {
         saveButton.setTitleColor(.black, for: .normal)
         saveButton.layer.cornerRadius = 5
         saveButton.layer.borderWidth = 1
-        saveButton.layer.borderColor = UIColor.black.cgColor
+        saveButton.layer.borderColor = Asset.Colors.blackColor.color.cgColor
         saveButton.layer.masksToBounds = true
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
 
         customAnswerTextField.borderStyle = .roundedRect
         customAnswerTextField.textAlignment = .center
-        customAnswerTextField.backgroundColor = .systemGray2
-        customAnswerTextField.placeholder = "Enter your custom answer"
+        customAnswerTextField.backgroundColor = Asset.Colors.greyColor.color
+        customAnswerTextField.placeholder = L10n.answerTextPlaceHolder
     }
 
     @objc private func dissmissKeyboard() {
@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: "customAnswer")
+        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: L10n.customAnswerKey)
         customAnswerTextField.text = nil
     }
 }

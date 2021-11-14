@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  ShakeApp
+
+  Created by Softermii-User on 14.11.2021.
+  
+*/
+
+"AppName" = "ShakeApp";
+"Greeting" = "Hello";
+"QuestionTextPlaceHolder" = "Enter your question and shake the phone";
+"CustomAnswerKey" = "customAnswer";
+"DefaultAnswer" = "Opps";
+"AnswerTextPlaceHolder" = "Enter your custom answer";

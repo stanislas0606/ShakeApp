@@ -50,9 +50,9 @@ class MainViewController: UIViewController {
 
     // MARK: - Private
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Asset.Colors.whiteColor.color
 
-        self.navigationController?.navigationBar.topItem?.title = "ShakeApp"
+        self.navigationController?.navigationBar.topItem?.title = L10n.appName
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(rigthButtonClicked))
 
@@ -75,13 +75,13 @@ class MainViewController: UIViewController {
             questionTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
         ])
 
-        answerLabel.text = "Hello"
-        answerLabel.textColor = .black
-
+        answerLabel.text = L10n.greeting
+        answerLabel.textColor = Asset.Colors.blackColor.color
+        
         questionTextField.borderStyle = .roundedRect
         questionTextField.textAlignment = .center
-        questionTextField.backgroundColor = .systemGray2
-        questionTextField.placeholder = "Enter your question and shake the phone"
+        questionTextField.backgroundColor = Asset.Colors.greyColor.color
+        questionTextField.placeholder = L10n.questionTextPlaceHolder
     }
 
     @objc private func rigthButtonClicked() {
@@ -98,9 +98,9 @@ class MainViewController: UIViewController {
 // MARK: - NetworkServiceDelegate
 extension MainViewController: NetworkServiceDelegate {
     func didGetError() {
-        let customAnswer = storageDataProvider.readData(for: "customAnswer")
+        let customAnswer = storageDataProvider.readData(for: L10n.customAnswerKey)
         guard let answer = customAnswer, !answer.isEmpty else {
-            answerLabel.text = "Opps"
+            answerLabel.text = L10n.defaultAnswer
             return
         }
         answerLabel.text = answer
