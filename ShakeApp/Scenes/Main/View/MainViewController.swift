@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: - Properties
     private let answerLabel = UILabel()
@@ -33,16 +33,16 @@ class MainViewController: UIViewController {
 
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         questionTextField.resignFirstResponder()
-    }
-
-    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-
+        viewModel.shouldHandlerFetchData = { [weak self] answer in
+            DispatchQueue.main.async {
+             self?.answerLabel.text = answer.answerText
+            }
+        }
     }
 
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        guard let text = questionTextField.text, !text.isEmpty else { return }
-
-        viewModel.loadData(for: text)
+        guard let text = questionTextField.text, !text.isEmpty, motion == .motionShake else { return }
+        viewModel.motionHandler?(text)
     }
 
     // MARK: - Private
@@ -79,10 +79,6 @@ class MainViewController: UIViewController {
         questionTextField.textAlignment = .center
         questionTextField.backgroundColor = Asset.Colors.grayColor.color
         questionTextField.placeholder = L10n.Question.Placeholder.text
-        
-        viewModel.shouldHandlerFetchData = { [weak self] text in
-            self?.answerLabel.text = text
-        }
     }
 
     @objc private func rigthButtonClicked() {

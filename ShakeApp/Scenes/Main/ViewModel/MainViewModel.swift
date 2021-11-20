@@ -5,14 +5,15 @@
 //  Created by Softermii-User on 14.11.2021.
 //
 
-import UIKit
+import Foundation
 
-class MainViewModel {
+final class MainViewModel {
 
     // MARK: - Properties
     private let model: MainModel
-
-    var shouldHandlerFetchData: ((String) -> Void)? {
+    
+    var motionHandler: ((String) -> Void)?
+    var shouldHandlerFetchData: ((PresentableAnswerData) -> Void)? {
         didSet {
             model.fetchDataHandler = shouldHandlerFetchData
         }
@@ -21,14 +22,12 @@ class MainViewModel {
     // MARK: - Init
     init(model: MainModel) {
         self.model = model
+        motionHandler = { [weak self] text in
+            self?.loadData(for: text)
+        }
     }
 
-    func loadData(for question: String) {
+    private func loadData(for question: String) {
         model.loadData(for: question)
     }
-
-    func getAnswer() -> PresentableAnswerData {
-        return PresentableAnswerData(answerText: model.getAnswer())
-    }
-
 }

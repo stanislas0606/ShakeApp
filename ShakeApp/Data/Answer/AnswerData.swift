@@ -8,12 +8,14 @@
 import Foundation
 
 struct AnswerData: Codable {
+    
     let question: String
     let answer: String
     let type: String
 }
 
 extension AnswerData {
+    
     func toPresentableAnswerData() -> PresentableAnswerData {
         return PresentableAnswerData(from: self)
     }

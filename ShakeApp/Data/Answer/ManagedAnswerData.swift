@@ -8,6 +8,7 @@
 import Foundation
 
 struct ManagedAnswerData: Codable {
+    
     let magic: MagicData
 
     struct MagicData: Codable {
@@ -18,6 +19,7 @@ struct ManagedAnswerData: Codable {
 }
 
 extension ManagedAnswerData {
+    
     func toAnswerData() -> AnswerData {
         return AnswerData(question: self.magic.question,
                            answer: self.magic.answer,

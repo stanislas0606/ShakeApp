@@ -7,14 +7,13 @@
 
 import Foundation
 
-class MainModel {
+final class MainModel {
 
     // MARK: - Properties
     private let storageDataProvider: StorageDataProvider
     private var networkDataProvider: NetworkDataProvider
-    private var answerData: String?
 
-    var fetchDataHandler: ((String) -> Void)?
+    var fetchDataHandler: ((PresentableAnswerData) -> Void)?
 
     // MARK: - Init
     init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider) {
@@ -23,32 +22,23 @@ class MainModel {
         self.networkDataProvider.delegate = self
     }
 
-    func fetchData(for question: String) {
+    func loadData(for question: String) {
         networkDataProvider.loadData(for: question)
-    }
-
-    func getAnswer() -> String {
-        guard let answer = answerData else {
-            return L10n.Answer.Default.text
-        }
-        return answer
     }
 }
 
 extension MainModel: NetworkServiceDelegate {
 
-    func didFetchData(_ data: AnswerData) {
-        answerData = data.answer
-        guard let answer = answerData else { return }
+    func didLoadData(_ data: AnswerData) {
+        let answer = data.toPresentableAnswerData()
         fetchDataHandler?(answer)
     }
 
     func didGetError() {
-        answerData = storageDataProvider.readData(for: L10n.Answer.Custom.key)
-        if let answer = answerData {
-            fetchDataHandler?(answer)
+        if let answer = storageDataProvider.readData(for: L10n.Answer.Custom.key) {
+            fetchDataHandler?(PresentableAnswerData(with: answer))
         } else {
-            fetchDataHandler?(L10n.Answer.Default.text)
+            fetchDataHandler?(PresentableAnswerData(with: L10n.Answer.Default.text))
         }
     }
 }

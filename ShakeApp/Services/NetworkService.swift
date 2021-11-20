@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkServiceDelegate: AnyObject {
-    func didLoadData(_ data: ManagedAnswerData)
+    func didLoadData(_ data: AnswerData)
     func didGetError()
 }
 
@@ -34,18 +34,17 @@ class NetworkService: NetworkDataProvider {
 
     // MARK: - Private
     private func performRequest(with urlString: String) {
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else {
+            return
+        }
         let session = URLSession.shared
         let task = session.dataTask(with: url) { [weak self] data, _, _ in
             guard let data = data, let decodedData = self?.parseJSON(data) else {
-                DispatchQueue.main.async {
-                    self?.delegate?.didGetError()
-                }
+                self?.delegate?.didGetError()
                 return
             }
-            DispatchQueue.main.async {
-                self?.delegate?.didLoadData(decodedData)
-            }
+            self?.delegate?.didLoadData(decodedData.toAnswerData())
+            
         }
         task.resume()
     }

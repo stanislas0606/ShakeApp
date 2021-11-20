@@ -8,13 +8,24 @@
 import Foundation
 
 struct PresentableAnswerData {
-    var model: AnswerData
     
+    // MARK: - Properties
+    private var model: AnswerData?
+    private var errorAnswer = ""
+    
+    var answerText: String {
+        guard let model = model else {
+            return errorAnswer.uppercased()
+        }
+        return model.answer.uppercased()
+    }
+    
+    // MARK: - Init
     init(from model: AnswerData) {
         self.model = model
     }
     
-    var answerText: String {
-        return model.answer.uppercased()
+    init(with errorAnswer: String) {
+        self.errorAnswer = errorAnswer
     }
 }
