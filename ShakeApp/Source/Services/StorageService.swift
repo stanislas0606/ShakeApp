@@ -12,7 +12,9 @@ protocol StorageDataProvider {
     func writeData(_ data: String, for key: String)
 }
 
-class StorageService: StorageDataProvider {
+final class StorageService: StorageDataProvider {
+    
+    // MARK: - Functions
     func readData(for key: String) -> String? {
         return UserDefaults.standard.string(forKey: key)
     }

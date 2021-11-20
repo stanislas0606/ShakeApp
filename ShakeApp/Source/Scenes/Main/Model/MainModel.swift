@@ -35,7 +35,7 @@ extension MainModel: NetworkServiceDelegate {
     }
 
     func didGetError() {
-        if let answer = storageDataProvider.readData(for: L10n.Answer.Custom.key) {
+        if let answer = storageDataProvider.readData(for: L10n.Answer.Custom.key), !answer.isEmpty {
             fetchDataHandler?(PresentableAnswerData(with: answer))
         } else {
             fetchDataHandler?(PresentableAnswerData(with: L10n.Answer.Default.text))

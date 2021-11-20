@@ -9,6 +9,7 @@ import Foundation
 
 struct AnswerData: Codable {
     
+    // MARK: - Properties
     let question: String
     let answer: String
     let type: String

@@ -82,7 +82,10 @@ final class MainViewController: UIViewController {
     }
 
     @objc private func rigthButtonClicked() {
-        let settingsVC = SettingsViewController(storageDataProvider: StorageService())
+        let provider = StorageService()
+        let model = SettingsModel(storageDataProvider: provider)
+        let viewModel = SettingsViewModel(model: model)
+        let settingsVC = SettingsViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
 

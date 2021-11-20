@@ -17,7 +17,7 @@ protocol NetworkDataProvider {
     func loadData(for question: String)
 }
 
-class NetworkService: NetworkDataProvider {
+final class NetworkService: NetworkDataProvider {
 
     // MARK: - Properties
     let baseURL = URL(string: "https://8ball.delegator.com/magic/JSON/")

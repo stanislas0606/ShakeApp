@@ -11,6 +11,7 @@
 		BF90260F274911D500F521AA /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260C274911D500F521AA /* AnswerData.swift */; };
 		BF902610274911D500F521AA /* PresentableAnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260D274911D500F521AA /* PresentableAnswerData.swift */; };
 		BF902611274911D500F521AA /* ManagedAnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260E274911D500F521AA /* ManagedAnswerData.swift */; };
+		BF902613274939DE00F521AA /* ManagedSettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF902612274939DE00F521AA /* ManagedSettingsData.swift */; };
 		BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */; };
 		BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */; };
 		BFF9B34B2720AB4D000CFC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		BF90260C274911D500F521AA /* AnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		BF90260D274911D500F521AA /* PresentableAnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableAnswerData.swift; sourceTree = "<group>"; };
 		BF90260E274911D500F521AA /* ManagedAnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAnswerData.swift; sourceTree = "<group>"; };
+		BF902612274939DE00F521AA /* ManagedSettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedSettingsData.swift; sourceTree = "<group>"; };
 		BFF9B33E2720AB4C000CFC18 /* ShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,28 @@
 			path = Answer;
 			sourceTree = "<group>";
 		};
+		BF902614274939EA00F521AA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3982741B8A5000CFC18 /* SettingsData.swift */,
+				BFF9B39A2741B8BC000CFC18 /* PresentableSettingsData.swift */,
+				BF902612274939DE00F521AA /* ManagedSettingsData.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BF9026152749492000F521AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
+				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
+				BFF9B37A27413399000CFC18 /* Data */,
+				BFF9B3792741336F000CFC18 /* Services */,
+				BFF9B37827413308000CFC18 /* Scenes */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		BFF9B3352720AB4C000CFC18 = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +143,7 @@
 		BFF9B3402720AB4C000CFC18 /* ShakeApp */ = {
 			isa = PBXGroup;
 			children = (
-				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
-				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
-				BFF9B37A27413399000CFC18 /* Data */,
-				BFF9B3792741336F000CFC18 /* Services */,
-				BFF9B37827413308000CFC18 /* Scenes */,
+				BF9026152749492000F521AA /* Source */,
 				BFF9B373274130BC000CFC18 /* Resources */,
 			);
 			path = ShakeApp;
@@ -164,8 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				BF90260B274911D500F521AA /* Answer */,
-				BFF9B3982741B8A5000CFC18 /* SettingsData.swift */,
-				BFF9B39A2741B8BC000CFC18 /* PresentableSettingsData.swift */,
+				BF902614274939EA00F521AA /* Settings */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -373,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF902613274939DE00F521AA /* ManagedSettingsData.swift in Sources */,
 				BFF9B39327419DE8000CFC18 /* SettingsModel.swift in Sources */,
 				BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */,
 				BFF9B3992741B8A5000CFC18 /* SettingsData.swift in Sources */,
