@@ -1,0 +1,20 @@
+
+## XCAssets
+xcassets:
+  inputs:
+    - ShakeApp/Resources/Assets.xcassets
+    - ShakeApp/Resources/Colors.xcassets
+  outputs:
+    templateName: swift5
+    output: XCAssets+Generated.swift
+    
+## Strings
+strings:
+  inputs:
+    - ShakeApp/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        publicAccess: true
+      output: Strings+Generated.swift
+

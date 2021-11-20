@@ -17,6 +17,10 @@
 		BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3592721AA18000CFC18 /* NetworkService.swift */; };
 		BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */; };
 		BFF9B3602739C0A3000CFC18 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B35F2739C0A3000CFC18 /* StorageService.swift */; };
+		BFF9B36A2740832D000CFC18 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B3692740832D000CFC18 /* Colors.xcassets */; };
+		BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */; };
+		BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B37127408967000CFC18 /* Strings+Generated.swift */; };
+		BFF9B3832741397F000CFC18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B3812741397F000CFC18 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +32,15 @@
 		BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFF9B34D2720AB4D000CFC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BFF9B34F2720AB4D000CFC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF9B3552720AD86000CFC18 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BFF9B3592721AA18000CFC18 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		BFF9B35F2739C0A3000CFC18 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		BFF9B3692740832D000CFC18 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "ShakeApp/Resources/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
+		BFF9B37127408967000CFC18 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strings+Generated.swift"; path = "ShakeApp/Resources/Strings+Generated.swift"; sourceTree = SOURCE_ROOT; };
+		BFF9B3822741397F000CFC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +93,53 @@
 		BFF9B3402720AB4C000CFC18 /* ShakeApp */ = {
 			isa = PBXGroup;
 			children = (
-				BFF9B3592721AA18000CFC18 /* NetworkService.swift */,
-				BFF9B35F2739C0A3000CFC18 /* StorageService.swift */,
-				BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */,
-				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
-				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
 				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
 				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
-				BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */,
-				BFF9B34C2720AB4D000CFC18 /* LaunchScreen.storyboard */,
-				BFF9B34F2720AB4D000CFC18 /* Info.plist */,
+				BFF9B37A27413399000CFC18 /* Data */,
+				BFF9B3792741336F000CFC18 /* Services */,
+				BFF9B37827413308000CFC18 /* Flows */,
+				BFF9B373274130BC000CFC18 /* Resources */,
 			);
 			path = ShakeApp;
+			sourceTree = "<group>";
+		};
+		BFF9B373274130BC000CFC18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3812741397F000CFC18 /* Localizable.strings */,
+				BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */,
+				BFF9B37127408967000CFC18 /* Strings+Generated.swift */,
+				BFF9B34C2720AB4D000CFC18 /* LaunchScreen.storyboard */,
+				BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */,
+				BFF9B3692740832D000CFC18 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BFF9B37827413308000CFC18 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3552720AD86000CFC18 /* MainViewController.swift */,
+				BFF9B3572720ADBB000CFC18 /* SettingsViewController.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		BFF9B3792741336F000CFC18 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3592721AA18000CFC18 /* NetworkService.swift */,
+				BFF9B35F2739C0A3000CFC18 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BFF9B37A27413399000CFC18 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B35B2721AAE3000CFC18 /* AnswerData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +150,8 @@
 			buildConfigurationList = BFF9B3522720AB4D000CFC18 /* Build configuration list for PBXNativeTarget "ShakeApp" */;
 			buildPhases = (
 				7A86ED848731189C8347F4F1 /* [CP] Check Pods Manifest.lock */,
+				BFF9B36427407736000CFC18 /* Swift Gen */,
+				BFF9B3612740549F000CFC18 /* Swift Lint */,
 				BFF9B33A2720AB4C000CFC18 /* Sources */,
 				BFF9B33B2720AB4C000CFC18 /* Frameworks */,
 				BFF9B33C2720AB4C000CFC18 /* Resources */,
@@ -159,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF9B34E2720AB4D000CFC18 /* LaunchScreen.storyboard in Resources */,
+				BFF9B3832741397F000CFC18 /* Localizable.strings in Resources */,
+				BFF9B36A2740832D000CFC18 /* Colors.xcassets in Resources */,
 				BFF9B34B2720AB4D000CFC18 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +234,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BFF9B3612740549F000CFC18 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint autocorrect\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		BFF9B36427407736000CFC18 /* Swift Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -197,7 +279,9 @@
 			files = (
 				BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */,
 				BFF9B3562720AD86000CFC18 /* MainViewController.swift in Sources */,
+				BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */,
 				BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */,
+				BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */,
 				BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */,
 				BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */,
 				BFF9B35C2721AAE3000CFC18 /* AnswerData.swift in Sources */,
@@ -214,6 +298,14 @@
 				BFF9B34D2720AB4D000CFC18 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BFF9B3812741397F000CFC18 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF9B3822741397F000CFC18 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -343,7 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJD8T4GCDN;
-				INFOPLIST_FILE = ShakeApp/Info.plist;
+				INFOPLIST_FILE = ShakeApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -364,7 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJD8T4GCDN;
-				INFOPLIST_FILE = ShakeApp/Info.plist;
+				INFOPLIST_FILE = ShakeApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
