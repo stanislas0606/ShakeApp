@@ -13,13 +13,11 @@ class MainViewController: UIViewController {
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
 
-    private var networkDataProvider: NetworkDataProvider
-    private let storageDataProvider: StorageDataProvider
+    private var viewModel: MainViewModel
 
     // MARK: - Init
-    init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider) {
-        self.networkDataProvider = networkDataProvider
-        self.storageDataProvider = storageDataProvider
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,17 +33,16 @@ class MainViewController: UIViewController {
 
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         questionTextField.resignFirstResponder()
-        networkDataProvider.delegate = self
-
     }
 
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        networkDataProvider.delegate = nil
+
     }
 
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard let text = questionTextField.text, !text.isEmpty else { return }
-        networkDataProvider.fetchData(for: text)
+
+        viewModel.loadData(for: text)
     }
 
     // MARK: - Private
@@ -56,7 +53,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = Asset.Colors.grayColor.color
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(rigthButtonClicked))
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         view.addSubview(answerLabel)
@@ -82,6 +79,10 @@ class MainViewController: UIViewController {
         questionTextField.textAlignment = .center
         questionTextField.backgroundColor = Asset.Colors.grayColor.color
         questionTextField.placeholder = L10n.Question.Placeholder.text
+        
+        viewModel.shouldHandlerFetchData = { [weak self] text in
+            self?.answerLabel.text = text
+        }
     }
 
     @objc private func rigthButtonClicked() {
@@ -89,24 +90,8 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
 
-    @objc private func dissmissKeyboard() {
+    @objc private func dismissKeyboard() {
         questionTextField.resignFirstResponder()
     }
 
-}
-
-// MARK: - NetworkServiceDelegate
-extension MainViewController: NetworkServiceDelegate {
-    func didGetError() {
-        let customAnswer = storageDataProvider.readData(for: L10n.Answer.Custom.key)
-        guard let answer = customAnswer, !answer.isEmpty else {
-            answerLabel.text = L10n.Answer.Default.text
-            return
-        }
-        answerLabel.text = answer
-    }
-
-    func didFetchMagic(_ magicData: MagicData) {
-        answerLabel.text = magicData.answer
-    }
 }

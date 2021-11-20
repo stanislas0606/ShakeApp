@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         self.window = window
 
-        let mainViewController = MainViewController(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
-        let navigationController = UINavigationController(rootViewController: mainViewController)
+        let mainModel = MainModel(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
+        let mainViewModel = MainViewModel(model: mainModel)
+        let mainVC = MainViewController(viewModel: mainViewModel)
+        let navigationController = UINavigationController(rootViewController: mainVC)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
 

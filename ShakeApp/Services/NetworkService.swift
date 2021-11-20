@@ -8,13 +8,13 @@
 import Foundation
 
 protocol NetworkServiceDelegate: AnyObject {
-    func didFetchMagic(_ magicData: MagicData)
+    func didLoadData(_ data: ManagedAnswerData)
     func didGetError()
 }
 
 protocol NetworkDataProvider {
     var delegate: NetworkServiceDelegate? { get set }
-    func fetchData(for question: String)
+    func loadData(for question: String)
 }
 
 class NetworkService: NetworkDataProvider {
@@ -25,7 +25,7 @@ class NetworkService: NetworkDataProvider {
     weak var delegate: NetworkServiceDelegate?
 
     // MARK: - Functions
-    func fetchData(for question: String) {
+    func loadData(for question: String) {
         guard let url = baseURL, !question.isEmpty else { return }
         let questionString = question.replacingOccurrences(of: " ", with: "%20")
         let urlString = "\(url)\(questionString)"
@@ -44,15 +44,15 @@ class NetworkService: NetworkDataProvider {
                 return
             }
             DispatchQueue.main.async {
-                self?.delegate?.didFetchMagic(decodedData.magic)
+                self?.delegate?.didLoadData(decodedData)
             }
         }
         task.resume()
     }
 
-    private func parseJSON(_ data: Data) -> AnswerData? {
+    private func parseJSON(_ data: Data) -> ManagedAnswerData? {
         do {
-            return try JSONDecoder().decode(AnswerData.self, from: data)
+            return try JSONDecoder().decode(ManagedAnswerData.self, from: data)
         } catch {
             return nil
         }
