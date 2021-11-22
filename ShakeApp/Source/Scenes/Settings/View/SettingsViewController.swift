@@ -55,7 +55,7 @@ private extension SettingsViewController {
     func setupSaveButtonConstraints() {
         view.addSubview(saveButton)
         
-        saveButton.snp.makeConstraints ({
+        saveButton.snp.makeConstraints({
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.view.snp.centerY)
             $0.height.equalTo(35)
@@ -66,7 +66,7 @@ private extension SettingsViewController {
     func setupCustomAnswerTextFieldConstraints() {
         view.addSubview(customAnswerTextField)
         
-        customAnswerTextField.snp.makeConstraints ({
+        customAnswerTextField.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(horizontalPadding)
             $0.centerXWithinMargins.equalToSuperview()
             $0.bottom.equalTo(self.view.snp.centerY).offset(-verticalPadding)

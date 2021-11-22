@@ -79,7 +79,7 @@ private extension MainViewController {
     func setupAnswerLabelCostraints() {
         view.addSubview(answerLabel)
         
-        answerLabel.snp.makeConstraints ({
+        answerLabel.snp.makeConstraints({
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.view.snp.centerY)
             $0.bottom.lessThanOrEqualToSuperview().inset(verticalPadding)
@@ -90,7 +90,7 @@ private extension MainViewController {
     func setupQuestionTextFieldCostraints() {
         view.addSubview(questionTextField)
         
-        questionTextField.snp.makeConstraints ({
+        questionTextField.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(horizontalPadding)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(self.view.snp.centerY).offset(-verticalPadding)
@@ -107,13 +107,11 @@ private extension MainViewController {
         answerLabel.numberOfLines = 0
         answerLabel.text = L10n.Answer.empty
         answerLabel.textColor = Asset.Colors.blackColor.color
-        answerLabel.backgroundColor = .cyan
-        answerLabel.textAlignment = .natural
+        answerLabel.textAlignment = .center
 
         questionTextField.borderStyle = .roundedRect
-        questionTextField.textAlignment = .natural
+        questionTextField.textAlignment = .center
         questionTextField.backgroundColor = Asset.Colors.grayColor.color
         questionTextField.placeholder = L10n.Question.Placeholder.text
     }
 }
-
