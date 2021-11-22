@@ -12,7 +12,7 @@ protocol NetworkServiceDelegate: AnyObject {
     func didGetError()
 }
 
-protocol NetworkDataProvider {
+protocol NetworkDataProvider: AnyObject {
     var delegate: NetworkServiceDelegate? { get set }
     func loadData(for question: String)
 }

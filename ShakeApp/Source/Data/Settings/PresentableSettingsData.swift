@@ -10,7 +10,7 @@ import Foundation
 struct PresentableSettingsData {
     
     // MARK: - Properties
-    var model: SettingsData
+    let model: SettingsData
     
     var customAnswerText: String {
         return model.customAnswer

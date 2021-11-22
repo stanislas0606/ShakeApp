@@ -11,7 +11,7 @@ final class MainModel {
 
     // MARK: - Properties
     private let storageDataProvider: StorageDataProvider
-    private var networkDataProvider: NetworkDataProvider
+    private let networkDataProvider: NetworkDataProvider
 
     var fetchDataHandler: ((PresentableAnswerData) -> Void)?
 

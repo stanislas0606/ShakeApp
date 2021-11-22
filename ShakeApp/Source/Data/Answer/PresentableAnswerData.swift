@@ -10,7 +10,7 @@ import Foundation
 struct PresentableAnswerData {
     
     // MARK: - Properties
-    private var model: AnswerData?
+    private let model: AnswerData?
     private var errorAnswer = ""
     
     var answerText: String {
@@ -27,5 +27,6 @@ struct PresentableAnswerData {
     
     init(with errorAnswer: String) {
         self.errorAnswer = errorAnswer
+        self.model = nil
     }
 }
