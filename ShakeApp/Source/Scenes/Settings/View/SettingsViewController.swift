@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
 final class SettingsViewController: UIViewController {
 
     // MARK: Properties
     private let customAnswerTextField = UITextField()
     private let saveButton = UIButton()
+    
+    private let horizontalPadding = 20
+    private let verticalPadding = 24
 
     private let viewModel: SettingsViewModel
 
@@ -28,32 +32,53 @@ final class SettingsViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupSaveButtonConstraints()
+        setupCustomAnswerTextFieldConstraints()
         setupViews()
     }
 
     // MARK: Private
-    private func setupViews() {
-        view.backgroundColor = Asset.Colors.whiteColor.color
+    @objc private func dismissKeyboard() {
+        customAnswerTextField.resignFirstResponder()
+    }
+    
+    @objc private func saveButtonTapped() {
+        viewModel.saveButtonHandler?(customAnswerTextField.text ?? "")
+        customAnswerTextField.text = nil
+    }
+}
 
+// MARK: - UI Configure
+private extension SettingsViewController {
+    
+    func setupSaveButtonConstraints() {
+        view.addSubview(saveButton)
+        
+        saveButton.snp.makeConstraints({
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(self.view.snp.centerY)
+            $0.height.equalTo(35)
+            $0.width.equalTo(120)
+        })
+    }
+    
+    func setupCustomAnswerTextFieldConstraints() {
+        view.addSubview(customAnswerTextField)
+        
+        customAnswerTextField.snp.makeConstraints({
+            $0.leading.trailing.equalToSuperview().inset(horizontalPadding)
+            $0.centerXWithinMargins.equalToSuperview()
+            $0.bottom.equalTo(self.view.snp.centerY).offset(-verticalPadding)
+            $0.height.equalTo(35)
+        })
+    }
+    
+    func setupViews() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-
-        view.addSubview(saveButton)
-        view.addSubview(customAnswerTextField)
-
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
-        customAnswerTextField.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            saveButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            saveButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            saveButton.widthAnchor.constraint(equalToConstant: 120),
-
-            customAnswerTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -80),
-            customAnswerTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            customAnswerTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            customAnswerTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
-        ])
+        
+        view.backgroundColor = Asset.Colors.whiteColor.color
 
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.black, for: .normal)
@@ -67,14 +92,5 @@ final class SettingsViewController: UIViewController {
         customAnswerTextField.textAlignment = .center
         customAnswerTextField.backgroundColor = Asset.Colors.grayColor.color
         customAnswerTextField.placeholder = L10n.Answer.Placeholder.text
-    }
-
-    @objc private func dismissKeyboard() {
-        customAnswerTextField.resignFirstResponder()
-    }
-
-    @objc private func saveButtonTapped() {
-        viewModel.saveButtonHandler?(customAnswerTextField.text ?? "")
-        customAnswerTextField.text = nil
     }
 }
