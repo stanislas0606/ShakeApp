@@ -101,7 +101,6 @@ private extension MainViewController {
             $0.top.equalTo(self.view.snp.centerY)
             $0.bottom.lessThanOrEqualToSuperview().inset(verticalPadding)
             $0.leading.trailing.equalToSuperview().inset(horizontalPadding)
-            
         })
     }
     
@@ -110,7 +109,7 @@ private extension MainViewController {
         
         questionTextField.snp.makeConstraints ({
             $0.leading.trailing.equalToSuperview().inset(horizontalPadding)
-            $0.centerXWithinMargins.equalToSuperview()
+            $0.centerX.equalToSuperview()
             $0.bottom.equalTo(self.view.snp.centerY).offset(-verticalPadding)
             $0.height.equalTo(35)
         })

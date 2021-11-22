@@ -60,7 +60,6 @@ private extension SettingsViewController {
             $0.top.equalTo(self.view.snp.centerY)
             $0.height.equalTo(35)
             $0.width.equalTo(120)
-            
         })
     }
     
