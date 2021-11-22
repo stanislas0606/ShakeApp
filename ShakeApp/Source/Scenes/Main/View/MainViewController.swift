@@ -7,19 +7,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: - Properties
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
 
-    private var networkDataProvider: NetworkDataProvider
-    private let storageDataProvider: StorageDataProvider
+    private var viewModel: MainViewModel
 
     // MARK: - Init
-    init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider) {
-        self.networkDataProvider = networkDataProvider
-        self.storageDataProvider = storageDataProvider
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,17 +33,16 @@ class MainViewController: UIViewController {
 
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         questionTextField.resignFirstResponder()
-        networkDataProvider.delegate = self
-
-    }
-
-    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        networkDataProvider.delegate = nil
+        viewModel.shouldHandlerFetchData = { [weak self] answer in
+            DispatchQueue.main.async {
+             self?.answerLabel.text = answer.answerText
+            }
+        }
     }
 
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        guard let text = questionTextField.text, !text.isEmpty else { return }
-        networkDataProvider.fetchData(for: text)
+        guard let text = questionTextField.text, !text.isEmpty, motion == .motionShake else { return }
+        viewModel.motionHandler?(text)
     }
 
     // MARK: - Private
@@ -56,7 +53,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = Asset.Colors.grayColor.color
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(rigthButtonClicked))
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         view.addSubview(answerLabel)
@@ -85,28 +82,15 @@ class MainViewController: UIViewController {
     }
 
     @objc private func rigthButtonClicked() {
-        let settingsVC = SettingsViewController(storageDataProvider: StorageService())
+        let provider = StorageService()
+        let model = SettingsModel(storageDataProvider: provider)
+        let viewModel = SettingsViewModel(model: model)
+        let settingsVC = SettingsViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
 
-    @objc private func dissmissKeyboard() {
+    @objc private func dismissKeyboard() {
         questionTextField.resignFirstResponder()
     }
 
-}
-
-// MARK: - NetworkServiceDelegate
-extension MainViewController: NetworkServiceDelegate {
-    func didGetError() {
-        let customAnswer = storageDataProvider.readData(for: L10n.Answer.Custom.key)
-        guard let answer = customAnswer, !answer.isEmpty else {
-            answerLabel.text = L10n.Answer.Default.text
-            return
-        }
-        answerLabel.text = answer
-    }
-
-    func didFetchMagic(_ magicData: MagicData) {
-        answerLabel.text = magicData.answer
-    }
 }

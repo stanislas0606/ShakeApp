@@ -7,17 +7,17 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
 
     // MARK: Properties
     private let customAnswerTextField = UITextField()
     private let saveButton = UIButton()
 
-    private let storageDataProvider: StorageDataProvider
+    private let viewModel: SettingsViewModel
 
     // MARK: - Init
-    init(storageDataProvider: StorageDataProvider) {
-        self.storageDataProvider = storageDataProvider
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = Asset.Colors.whiteColor.color
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         view.addSubview(saveButton)
@@ -69,12 +69,12 @@ class SettingsViewController: UIViewController {
         customAnswerTextField.placeholder = L10n.Answer.Placeholder.text
     }
 
-    @objc private func dissmissKeyboard() {
+    @objc private func dismissKeyboard() {
         customAnswerTextField.resignFirstResponder()
     }
 
     @objc private func saveButtonTapped() {
-        storageDataProvider.writeData(customAnswerTextField.text ?? "", for: L10n.Answer.Custom.key)
+        viewModel.saveButtonHandler?(customAnswerTextField.text ?? "")
         customAnswerTextField.text = nil
     }
 }
