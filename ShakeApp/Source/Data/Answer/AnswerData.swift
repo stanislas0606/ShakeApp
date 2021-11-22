@@ -8,11 +8,16 @@
 import Foundation
 
 struct AnswerData: Codable {
-    let magic: MagicData
-}
-
-struct MagicData: Codable {
+    
+    // MARK: - Properties
     let question: String
     let answer: String
     let type: String
+}
+
+extension AnswerData {
+    
+    func toPresentableAnswerData() -> PresentableAnswerData {
+        return PresentableAnswerData(from: self)
+    }
 }
