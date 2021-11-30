@@ -44,6 +44,13 @@ public enum L10n {
       public static let text = L10n.tr("Localizable", "question.placeholder.text")
     }
   }
+
+  public enum Title {
+    /// History
+    public static let history = L10n.tr("Localizable", "title.history")
+    /// Main
+    public static let main = L10n.tr("Localizable", "title.main")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

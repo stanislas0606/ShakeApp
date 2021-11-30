@@ -3,15 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EAA9EBD7E0310526D809DB7 /* libPods-ShakeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */; };
+		720DF0279A3AB5FE4942C411 /* Pods_ShakeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E3EFCC486FB5DC503D81B5 /* Pods_ShakeApp.framework */; };
 		BF90260F274911D500F521AA /* AnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260C274911D500F521AA /* AnswerData.swift */; };
 		BF902610274911D500F521AA /* PresentableAnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260D274911D500F521AA /* PresentableAnswerData.swift */; };
 		BF902611274911D500F521AA /* ManagedAnswerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF90260E274911D500F521AA /* ManagedAnswerData.swift */; };
 		BF902613274939DE00F521AA /* ManagedSettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF902612274939DE00F521AA /* ManagedSettingsData.swift */; };
+		BFD6A75F2756AF01004A618B /* SATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A75D2756AF01004A618B /* SATabBarController.swift */; };
+		BFD6A7602756AF01004A618B /* SATabBarConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A75E2756AF01004A618B /* SATabBarConstructor.swift */; };
+		BFD6A7642756D8CA004A618B /* ManagedHistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A7632756D8CA004A618B /* ManagedHistoryData.swift */; };
+		BFD6A7662756D8E2004A618B /* HistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A7652756D8E2004A618B /* HistoryData.swift */; };
+		BFD6A7682756D8FC004A618B /* PresentableHistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A7672756D8FC004A618B /* PresentableHistoryData.swift */; };
 		BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */; };
 		BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */; };
 		BFF9B34B2720AB4D000CFC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */; };
@@ -35,11 +40,16 @@
 /* Begin PBXFileReference section */
 		1C53E81D24D530C9AD46A729 /* Pods-ShakeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeApp.debug.xcconfig"; path = "Target Support Files/Pods-ShakeApp/Pods-ShakeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		480B029340FF6AAA800CE14A /* Pods-ShakeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeApp.release.xcconfig"; path = "Target Support Files/Pods-ShakeApp/Pods-ShakeApp.release.xcconfig"; sourceTree = "<group>"; };
-		81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShakeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF90260C274911D500F521AA /* AnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerData.swift; sourceTree = "<group>"; };
 		BF90260D274911D500F521AA /* PresentableAnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableAnswerData.swift; sourceTree = "<group>"; };
 		BF90260E274911D500F521AA /* ManagedAnswerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAnswerData.swift; sourceTree = "<group>"; };
 		BF902612274939DE00F521AA /* ManagedSettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedSettingsData.swift; sourceTree = "<group>"; };
+		BFD6A75D2756AF01004A618B /* SATabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATabBarController.swift; sourceTree = "<group>"; };
+		BFD6A75E2756AF01004A618B /* SATabBarConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATabBarConstructor.swift; sourceTree = "<group>"; };
+		BFD6A7612756D46F004A618B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFD6A7632756D8CA004A618B /* ManagedHistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedHistoryData.swift; sourceTree = "<group>"; };
+		BFD6A7652756D8E2004A618B /* HistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryData.swift; sourceTree = "<group>"; };
+		BFD6A7672756D8FC004A618B /* PresentableHistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableHistoryData.swift; sourceTree = "<group>"; };
 		BFF9B33E2720AB4C000CFC18 /* ShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +60,8 @@
 		BFF9B3592721AA18000CFC18 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BFF9B35F2739C0A3000CFC18 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		BFF9B3692740832D000CFC18 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCAssets+Generated.swift"; path = "ShakeApp/Resources/XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
-		BFF9B37127408967000CFC18 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strings+Generated.swift"; path = "ShakeApp/Resources/Strings+Generated.swift"; sourceTree = SOURCE_ROOT; };
+		BFF9B36B2740836A000CFC18 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
+		BFF9B37127408967000CFC18 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		BFF9B3822741397F000CFC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BFF9B38E27419D33000CFC18 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		BFF9B39027419D94000CFC18 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -59,6 +69,7 @@
 		BFF9B39427419DFE000CFC18 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		BFF9B3982741B8A5000CFC18 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		BFF9B39A2741B8BC000CFC18 /* PresentableSettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableSettingsData.swift; sourceTree = "<group>"; };
+		C7E3EFCC486FB5DC503D81B5 /* Pods_ShakeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EAA9EBD7E0310526D809DB7 /* libPods-ShakeApp.a in Frameworks */,
+				720DF0279A3AB5FE4942C411 /* Pods_ShakeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +87,7 @@
 		970F69ADAA0803D12C742E94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81B5895AD91A7E84CFD66832 /* libPods-ShakeApp.a */,
+				C7E3EFCC486FB5DC503D81B5 /* Pods_ShakeApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,13 +124,80 @@
 		BF9026152749492000F521AA /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
-				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
+				BFD6A75B2756AE96004A618B /* Custom */,
+				BFD6A75A2756AE6F004A618B /* Application */,
 				BFF9B37A27413399000CFC18 /* Data */,
 				BFF9B3792741336F000CFC18 /* Services */,
 				BFF9B37827413308000CFC18 /* Scenes */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		BFD6A75A2756AE6F004A618B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */,
+				BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BFD6A75B2756AE96004A618B /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6A75C2756AEB8004A618B /* TabBar */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		BFD6A75C2756AEB8004A618B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6A75E2756AF01004A618B /* SATabBarConstructor.swift */,
+				BFD6A75D2756AF01004A618B /* SATabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BFD6A7622756D858004A618B /* History */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6A7632756D8CA004A618B /* ManagedHistoryData.swift */,
+				BFD6A7652756D8E2004A618B /* HistoryData.swift */,
+				BFD6A7672756D8FC004A618B /* PresentableHistoryData.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		BFD6A7692756DC8D004A618B /* History */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6A76C2756DCBE004A618B /* ViewModel */,
+				BFD6A76B2756DCB1004A618B /* View */,
+				BFD6A76A2756DCA6004A618B /* Model */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		BFD6A76A2756DCA6004A618B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFD6A76B2756DCB1004A618B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFD6A76C2756DCBE004A618B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BFF9B3352720AB4C000CFC18 = {
@@ -165,6 +243,7 @@
 		BFF9B37827413308000CFC18 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6A7692756DC8D004A618B /* History */,
 				BFF9B38627419851000CFC18 /* Main */,
 				BFF9B38A27419BBE000CFC18 /* Settings */,
 			);
@@ -183,6 +262,7 @@
 		BFF9B37A27413399000CFC18 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6A7622756D858004A618B /* History */,
 				BF90260B274911D500F521AA /* Answer */,
 				BF902614274939EA00F521AA /* Settings */,
 			);
@@ -270,6 +350,7 @@
 				BFF9B33A2720AB4C000CFC18 /* Sources */,
 				BFF9B33B2720AB4C000CFC18 /* Frameworks */,
 				BFF9B33C2720AB4C000CFC18 /* Resources */,
+				A8AAD8743CDAF075D837AE47 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -349,6 +430,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A8AAD8743CDAF075D837AE47 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShakeApp/Pods-ShakeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShakeApp/Pods-ShakeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShakeApp/Pods-ShakeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BFF9B3612740549F000CFC18 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,17 +496,22 @@
 				BFF9B3992741B8A5000CFC18 /* SettingsData.swift in Sources */,
 				BFF9B3562720AD86000CFC18 /* MainViewController.swift in Sources */,
 				BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */,
+				BFD6A7682756D8FC004A618B /* PresentableHistoryData.swift in Sources */,
 				BF902611274911D500F521AA /* ManagedAnswerData.swift in Sources */,
 				BF90260F274911D500F521AA /* AnswerData.swift in Sources */,
 				BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */,
 				BF902610274911D500F521AA /* PresentableAnswerData.swift in Sources */,
+				BFD6A7662756D8E2004A618B /* HistoryData.swift in Sources */,
 				BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */,
+				BFD6A7642756D8CA004A618B /* ManagedHistoryData.swift in Sources */,
 				BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */,
 				BFF9B39B2741B8BC000CFC18 /* PresentableSettingsData.swift in Sources */,
 				BFF9B3582720ADBB000CFC18 /* SettingsViewController.swift in Sources */,
 				BFF9B39527419DFE000CFC18 /* SettingsViewModel.swift in Sources */,
+				BFD6A75F2756AF01004A618B /* SATabBarController.swift in Sources */,
 				BFF9B38F27419D33000CFC18 /* MainModel.swift in Sources */,
 				BFF9B3602739C0A3000CFC18 /* StorageService.swift in Sources */,
+				BFD6A7602756AF01004A618B /* SATabBarConstructor.swift in Sources */,
 				BFF9B39127419D94000CFC18 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +531,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BFF9B3822741397F000CFC18 /* Base */,
+				BFD6A7612756D46F004A618B /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

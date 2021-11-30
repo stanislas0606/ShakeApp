@@ -1,4 +1,4 @@
-module Pods_ShakeApp {
+framework module Pods_ShakeApp {
   umbrella header "Pods-ShakeApp-umbrella.h"
 
   export *

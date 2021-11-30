@@ -14,14 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let scene = (scene as? UIWindowScene) else { return }
+        
+        let tabBarConstructor = SATabBarConstructor(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
+        let tabBarViewController = SATabBarController(constructor: tabBarConstructor)
+        
         let window = UIWindow(windowScene: scene)
         self.window = window
-
-        let mainModel = MainModel(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
-        let mainViewModel = MainViewModel(model: mainModel)
-        let mainVC = MainViewController(viewModel: mainViewModel)
-        let navigationController = UINavigationController(rootViewController: mainVC)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabBarViewController
         self.window?.makeKeyAndVisible()
 
     }
