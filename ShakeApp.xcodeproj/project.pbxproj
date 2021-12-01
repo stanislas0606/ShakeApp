@@ -20,6 +20,9 @@
 		BFD6A76E2756EF7B004A618B /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A76D2756EF7B004A618B /* HistoryModel.swift */; };
 		BFD6A7702756F61B004A618B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A76F2756F61B004A618B /* HistoryViewModel.swift */; };
 		BFD6A7722756F637004A618B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A7712756F637004A618B /* HistoryViewController.swift */; };
+		BFD6A776275787AA004A618B /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A775275787AA004A618B /* RealmService.swift */; };
+		BFD6A77A27578F32004A618B /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A77927578F32004A618B /* RealmConfiguration.swift */; };
+		BFD6A77D2757BC4A004A618B /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6A77C2757BC4A004A618B /* Formatters.swift */; };
 		BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */; };
 		BFF9B3442720AB4C000CFC18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */; };
 		BFF9B34B2720AB4D000CFC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF9B34A2720AB4D000CFC18 /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		BFD6A76D2756EF7B004A618B /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		BFD6A76F2756F61B004A618B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BFD6A7712756F637004A618B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		BFD6A775275787AA004A618B /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		BFD6A77927578F32004A618B /* RealmConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
+		BFD6A77C2757BC4A004A618B /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		BFF9B33E2720AB4C000CFC18 /* ShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF9B3412720AB4C000CFC18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF9B3432720AB4C000CFC18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		BF9026152749492000F521AA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6A77B2757BC1B004A618B /* Helpers */,
 				BFD6A75B2756AE96004A618B /* Custom */,
 				BFD6A75A2756AE6F004A618B /* Application */,
 				BFF9B37A27413399000CFC18 /* Data */,
@@ -168,9 +175,9 @@
 		BFD6A7622756D858004A618B /* History */ = {
 			isa = PBXGroup;
 			children = (
-				BFD6A7632756D8CA004A618B /* ManagedHistoryData.swift */,
 				BFD6A7652756D8E2004A618B /* HistoryData.swift */,
 				BFD6A7672756D8FC004A618B /* PresentableHistoryData.swift */,
+				BFD6A7632756D8CA004A618B /* ManagedHistoryData.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -207,6 +214,14 @@
 				BFD6A76F2756F61B004A618B /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFD6A77B2757BC1B004A618B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6A77C2757BC4A004A618B /* Formatters.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		BFF9B3352720AB4C000CFC18 = {
@@ -264,6 +279,8 @@
 			children = (
 				BFF9B3592721AA18000CFC18 /* NetworkService.swift */,
 				BFF9B35F2739C0A3000CFC18 /* StorageService.swift */,
+				BFD6A775275787AA004A618B /* RealmService.swift */,
+				BFD6A77927578F32004A618B /* RealmConfiguration.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -499,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD6A77A27578F32004A618B /* RealmConfiguration.swift in Sources */,
 				BF902613274939DE00F521AA /* ManagedSettingsData.swift in Sources */,
 				BFF9B39327419DE8000CFC18 /* SettingsModel.swift in Sources */,
 				BFF9B35A2721AA18000CFC18 /* NetworkService.swift in Sources */,
@@ -507,11 +525,13 @@
 				BFF9B37227408967000CFC18 /* Strings+Generated.swift in Sources */,
 				BFD6A7682756D8FC004A618B /* PresentableHistoryData.swift in Sources */,
 				BF902611274911D500F521AA /* ManagedAnswerData.swift in Sources */,
+				BFD6A77D2757BC4A004A618B /* Formatters.swift in Sources */,
 				BFD6A76E2756EF7B004A618B /* HistoryModel.swift in Sources */,
 				BF90260F274911D500F521AA /* AnswerData.swift in Sources */,
 				BFD6A7702756F61B004A618B /* HistoryViewModel.swift in Sources */,
 				BFF9B3422720AB4C000CFC18 /* AppDelegate.swift in Sources */,
 				BF902610274911D500F521AA /* PresentableAnswerData.swift in Sources */,
+				BFD6A776275787AA004A618B /* RealmService.swift in Sources */,
 				BFD6A7662756D8E2004A618B /* HistoryData.swift in Sources */,
 				BFF9B36C2740836A000CFC18 /* XCAssets+Generated.swift in Sources */,
 				BFD6A7642756D8CA004A618B /* ManagedHistoryData.swift in Sources */,

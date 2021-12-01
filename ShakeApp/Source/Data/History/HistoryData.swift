@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct HistoryData {
+    
+    // MARK: - Properties
+    let answer: String
+    let date: Date
+}
+
+extension HistoryData {
+    
+    func toPresentableHistoryData() -> PresentableHistoryData {
+        return PresentableHistoryData(from: self)
+    }
+}

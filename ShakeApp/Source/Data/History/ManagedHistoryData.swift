@@ -12,13 +12,19 @@ import RealmSwift
     // MARK: - Properties
     dynamic var answer: String = ""
     dynamic var date = Date()
-    dynamic var isLocal: Bool = false
     
     // MARK: - Init
-    convenience init(answer: String, date: Date = Date(), isLocal: Bool) {
+    convenience init(answer: String, date: Date = Date()) {
         self.init()
         self.answer = answer
         self.date = date
-        self.isLocal = isLocal
+    }
+}
+
+extension ManagedHistoryData {
+    
+    func toHistoryData() -> HistoryData {
+        return HistoryData(answer: answer,
+                           date: date)
     }
 }

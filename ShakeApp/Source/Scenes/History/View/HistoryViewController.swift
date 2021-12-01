@@ -12,6 +12,7 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel: HistoryViewModel
+    private let dbDataProvider = RealmService()
     
     private let tableView = UITableView()
     
@@ -33,22 +34,38 @@ final class HistoryViewController: UIViewController {
         setupTableViewConstraints()
         setupViews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.updateHistory()
+        tableView.reloadData()
+    }
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.countOfHistory()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = String(describing: UITableViewCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         cell.selectionStyle = .none
-        cell.textLabel?.text = "Some text"
+        
+        DispatchQueue.main.async { [self] in
+            let historyItem = viewModel.history(at: indexPath.row)
+            cell.textLabel?.text = historyItem.historyText
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+
     }
     
     // MARK: - UI Configure
@@ -71,6 +88,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
 
     }
 }

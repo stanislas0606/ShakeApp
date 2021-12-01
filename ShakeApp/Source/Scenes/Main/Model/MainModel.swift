@@ -12,6 +12,7 @@ final class MainModel {
     // MARK: - Properties
     private let storageDataProvider: StorageDataProvider
     private let networkDataProvider: NetworkDataProvider
+    private let dbDataProvider = RealmService()
 
     var fetchDataHandler: ((PresentableAnswerData) -> Void)?
 
@@ -31,14 +32,20 @@ extension MainModel: NetworkServiceDelegate {
 
     func didLoadData(_ data: AnswerData) {
         let answer = data.toPresentableAnswerData()
+        dbDataProvider.saveHistory(ManagedHistoryData(answer: data.answer))
         fetchDataHandler?(answer)
     }
 
     func didGetError() {
-        if let answer = storageDataProvider.readData(for: L10n.Answer.Custom.key), !answer.isEmpty {
-            fetchDataHandler?(PresentableAnswerData(with: answer))
-        } else {
-            fetchDataHandler?(PresentableAnswerData(with: L10n.Answer.Default.text))
+        guard let dbAnswer = dbDataProvider.fetchHistory()?.randomElement()?.answer else {
+            if let answer = storageDataProvider.readData(for: L10n.Answer.Custom.key), !answer.isEmpty {
+                dbDataProvider.saveHistory(ManagedHistoryData(answer: answer))
+                fetchDataHandler?(PresentableAnswerData(with: answer))
+            } else {
+                fetchDataHandler?(PresentableAnswerData(with: L10n.Answer.Default.text))
+            }
+            return
         }
+        fetchDataHandler?(PresentableAnswerData(with: dbAnswer))
     }
 }

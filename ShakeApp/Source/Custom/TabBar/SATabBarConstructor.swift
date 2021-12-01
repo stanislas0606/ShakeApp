@@ -17,11 +17,13 @@ final class SATabBarConstructor {
     // MARK: - Properties
     private let storageDataProvider: StorageDataProvider
     private let networkDataProvider: NetworkDataProvider
+    private let dbDataProvider: HistoryDBProvider
     
     // MARK: - Init
-    init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider) {
+    init(networkDataProvider: NetworkDataProvider, storageDataProvider: StorageDataProvider, dbDataProvider: HistoryDBProvider) {
         self.networkDataProvider = networkDataProvider
         self.storageDataProvider = storageDataProvider
+        self.dbDataProvider = dbDataProvider
     }
     
     // MARK: - Private
@@ -40,7 +42,7 @@ final class SATabBarConstructor {
     }
     
     private func createHistoryNavigationController() -> UINavigationController {
-        let model = HistoryModel()
+        let model = HistoryModel(with: dbDataProvider)
         let viewModel = HistoryViewModel(model: model)
         let viewController = HistoryViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)

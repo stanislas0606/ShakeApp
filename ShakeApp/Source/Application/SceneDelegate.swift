@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        let tabBarConstructor = SATabBarConstructor(networkDataProvider: NetworkService(), storageDataProvider: StorageService())
+        let tabBarConstructor = SATabBarConstructor(networkDataProvider: NetworkService(), storageDataProvider: StorageService(), dbDataProvider: RealmService())
         let tabBarViewController = SATabBarController(constructor: tabBarConstructor)
         
         let window = UIWindow(windowScene: scene)
