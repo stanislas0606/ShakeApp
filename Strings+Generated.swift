@@ -38,11 +38,25 @@ public enum L10n {
     public static let text = L10n.tr("Localizable", "greeting.text")
   }
 
+  public enum Icon {
+    /// clock.fill
+    public static let history = L10n.tr("Localizable", "icon.history")
+    /// star.circle.fill
+    public static let main = L10n.tr("Localizable", "icon.main")
+  }
+
   public enum Question {
     public enum Placeholder {
       /// Enter your question and shake the phone
       public static let text = L10n.tr("Localizable", "question.placeholder.text")
     }
+  }
+
+  public enum Title {
+    /// History
+    public static let history = L10n.tr("Localizable", "title.history")
+    /// Main
+    public static let main = L10n.tr("Localizable", "title.main")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

@@ -11,11 +11,11 @@ struct PresentableAnswerData {
     
     // MARK: - Properties
     private let model: AnswerData?
-    private var errorAnswer = ""
+    private var customAnswer = ""
     
     var answerText: String {
         guard let model = model else {
-            return errorAnswer.uppercased()
+            return customAnswer.uppercased()
         }
         return model.answer.uppercased()
     }
@@ -25,8 +25,8 @@ struct PresentableAnswerData {
         self.model = model
     }
     
-    init(with errorAnswer: String) {
-        self.errorAnswer = errorAnswer
+    init(with customAnswer: String) {
+        self.customAnswer = customAnswer
         self.model = nil
     }
 }

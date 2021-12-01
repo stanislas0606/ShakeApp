@@ -13,3 +13,8 @@
 "answer.default.text" = "Opps";
 "answer.placeholder.text" = "Enter your custom answer";
 "answer.empty" = "";
+"title.main" = "Main";
+"title.history" = "History";
+"icon.main" = "star.circle.fill";
+"icon.history" = "clock.fill";
+
