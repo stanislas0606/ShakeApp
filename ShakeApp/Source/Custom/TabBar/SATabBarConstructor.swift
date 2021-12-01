@@ -24,25 +24,33 @@ final class SATabBarConstructor {
         self.storageDataProvider = storageDataProvider
     }
     
-    // MARK - Private
+    // MARK: - Private
     private func createMainNavigationController() -> UINavigationController {
         let model = MainModel(networkDataProvider: networkDataProvider, storageDataProvider: storageDataProvider)
         let viewModel = MainViewModel(model: model)
         let viewController = MainViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
         
-        viewController.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "mostViewed"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: L10n.Icon.main),
+            selectedImage: nil)
         
-        return UINavigationController(rootViewController: viewController)
+        return navigationController
     }
     
     private func createHistoryNavigationController() -> UINavigationController {
-        let model = SettingsModel(storageDataProvider: storageDataProvider)
-        let viewModel = SettingsViewModel(model: model)
-        let viewController = SettingsViewController(viewModel: viewModel)
+        let model = HistoryModel()
+        let viewModel = HistoryViewModel(model: model)
+        let viewController = HistoryViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
         
-        viewController.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "history"), tag: 1)
+        navigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: L10n.Icon.history),
+            selectedImage: nil)
         
-        return UINavigationController(rootViewController: viewController)
+        return navigationController
     }
     
 }

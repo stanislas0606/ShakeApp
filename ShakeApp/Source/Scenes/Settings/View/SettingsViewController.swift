@@ -29,7 +29,7 @@ final class SettingsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +38,7 @@ final class SettingsViewController: UIViewController {
         setupViews()
     }
 
-    // MARK: Private
+    // MARK: - Private
     @objc private func dismissKeyboard() {
         customAnswerTextField.resignFirstResponder()
     }
@@ -49,9 +49,9 @@ final class SettingsViewController: UIViewController {
     }
 }
 
-// MARK: - UI Configure
 private extension SettingsViewController {
     
+    // MARK: - UI Configure
     func setupSaveButtonConstraints() {
         view.addSubview(saveButton)
         

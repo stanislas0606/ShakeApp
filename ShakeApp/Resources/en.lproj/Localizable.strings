@@ -15,3 +15,6 @@
 "answer.empty" = "";
 "title.main" = "Main";
 "title.history" = "History";
+"icon.main" = "star.circle.fill";
+"icon.history" = "clock.fill";
+
